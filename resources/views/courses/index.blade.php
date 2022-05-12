@@ -11,7 +11,7 @@
             </h1>
         </div>
 
-
+        {{ dd(Auth::user()) }}
         <div id="text-center">
             <button class='btn'>
                 <a href="courses/create">

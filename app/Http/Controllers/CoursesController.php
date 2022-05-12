@@ -55,6 +55,27 @@ class CoursesController extends Controller
      */
     public function store(CreateValidationRequestCourse $request)
     {
+        
+
+
+        //Esta forma de validar es usando la CreateValidationRequest que hemos creado en Requests
+        $request->validated();
+
+       
+
+        //Otra forma
+        $course = Course::create([
+
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'date_start' => $request->input('date_start'),
+            'date_end' => $request->input('date_end'),
+            'active' => $request->input('active')
+        ]);
+
+        return redirect('/courses');
+
+
         //Una forma de hacerlo
         // $course = new Course;
         // $course->name = $request->input('name');
@@ -65,10 +86,7 @@ class CoursesController extends Controller
         // $course->save();
 
 
-        //Esta forma de validar es usando la CreateValidationRequest que hemos creado en Requests
-        $request->validated();
-
-        //Para validar con Request $ request
+         //Para validar con Request $ request
         //validate method sirve para comprobar los datos que vienen del request
         //comprueba. Si es válido continuará con el Course::create
         //si no es valido, lanza una ValidationException
@@ -83,18 +101,6 @@ class CoursesController extends Controller
            // 'ejemploInteger' =>  'required|integer|min:0|max:1000' 
            // 'ejemploReglaPropia' =>  new Uppercase, 
         ]);*/
-
-        //Otra forma
-        $course = Course::create([
-
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-            'date_start' => $request->input('date_start'),
-            'date_end' => $request->input('date_end'),
-            'active' => $request->input('active')
-        ]);
-
-        return redirect('/courses');
     }
 
     /**

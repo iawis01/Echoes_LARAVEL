@@ -15,10 +15,6 @@
                   <a href="/"
                   class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
               </li>
-              <li>
-                <a href="/courses"
-                class="{{ request()->is('courses/*') ? 'active' : '' }}">Courses</a>
-              </li>
 
               <li>
                   <a href="/admins"
