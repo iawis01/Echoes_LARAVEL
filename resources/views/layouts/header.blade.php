@@ -21,8 +21,8 @@
               </li>
 
               <li>
-                  <a href="portfolio"
-                  class="{{ request()->is('portfolio') ? 'active' : '' }}">Panel Administracion</a>
+                  <a href="/admins"
+                  class="{{ request()->is('admins/*') ? 'active' : '' }}">Panel Administracion</a>
               </li>
               <li>
                   <a href="contact"
