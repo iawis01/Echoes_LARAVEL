@@ -16,10 +16,15 @@
                   class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
               </li>
 
+              <!--@if (isset(Auth::user()->user_type) && Auth::user()->user_type 
+                    == "Admin" || "Teacher")-->
               <li>
                   <a href="/admins"
                   class="{{ request()->is('admins/*') ? 'active' : '' }}">Panel Administracion</a>
               </li>
+              <!--@endif-->
+
+
               <li>
                   <a href="contact"
                   class="{{ request()->is('contact') ? 'active' : '' }}">Expediente</a>
