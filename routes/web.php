@@ -6,6 +6,7 @@ use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\AdminsController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
