@@ -71,9 +71,6 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                                    <a class="dropdown-item" href="{{ route('change-password') }}">
-                                        {{ __('Change Password') }}
-                                    </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
@@ -99,12 +96,18 @@
 
 
     </div>
-
+    <div id="section-landing">
     @yield('content')
+    
 
-    <footer>
-        @include('layouts.footer')
-    </footer>
+    </div>
+
+
+
+    
 </body>
 
+<footer>
+    @include('layouts.footer')
+</footer>
 </html>
