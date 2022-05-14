@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\AdminsController;
+use App\Http\Controllers\UserController;
 
 
 
@@ -34,4 +35,9 @@ Route::resource('/courses', CoursesController::class);
 //Admins endpoint
 Route::resource('/admins', AdminsController::class);
 
-Route::get('/admins', [App\Http\Controllers\AdminController::class, 'index'])->name('admins.index');
+Route::get('/admins', [App\Http\Controllers\AdminsController::class, 'index'])->name('admins.index');
+
+Route::get('/users/index', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+
+Route::get('/users/change-password', [App\Http\Controllers\UserController::class, 'changePassword'])->name('change-password');
+Route::post('users/change-password', [App\Http\Controllers\UserController::class, 'updatePassword'])->name('update-password');

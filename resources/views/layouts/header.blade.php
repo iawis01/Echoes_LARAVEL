@@ -36,8 +36,8 @@
 
               @auth
               <li>
-                <a href="contact"
-                class="{{ request()->is('contact') ? 'active' : '' }}">Perfil</a>
+                <a href="/users/index"
+                class="{{ request()->is('users/*') ? 'active' : '' }}">Perfil</a>
             </li>
             @endauth
           </ul>

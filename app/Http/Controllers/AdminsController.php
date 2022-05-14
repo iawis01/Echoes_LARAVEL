@@ -30,7 +30,7 @@ class AdminsController extends Controller
         if(Gate::denies('user-only', auth()->user())){
             return view('admins.index', compact('users'));
         }else{
-            return view('home');
+            return view('welcome');
         }
         
 
