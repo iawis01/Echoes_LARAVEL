@@ -21,12 +21,16 @@ class Course extends Model
 
     protected $table = 'courses';
 
-    protected $primaryKey = 'id_course';
+    protected $primaryKey = 'id';
 
     protected $fillable = ['name', 'description', 'date_start', 'date_end', 'active'];
 
     /*public function users(){
 return $this->belongToMany(User::class);
 }*/
+
+public function users(){
+    return $this->belongsToMany('App\Models\User');
+}
 
 }

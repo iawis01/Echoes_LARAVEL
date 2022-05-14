@@ -19,7 +19,7 @@ class CoursesController extends Controller
         $courses = Course::all();
 
         //Un curso especifico
-        /*$courses = Course::where('id_course', '=', '1')
+        /*$courses = Course::where('id', '=', '1')
         ->get();*/
 
         return view('courses.index', [
@@ -99,9 +99,9 @@ class CoursesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_course)
+    public function show($id)
     {
-        return $id_course;
+        return $id;
     }
 
     /**
@@ -110,9 +110,9 @@ class CoursesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_course)
+    public function edit($id)
     {
-        $course = Course::find($id_course);
+        $course = Course::find($id);
 
         return view('courses.edit')->with('course', $course);
     }
@@ -121,14 +121,14 @@ class CoursesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id_course
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CreateValidationRequestCourse $request, $id_course)
+    public function update(CreateValidationRequestCourse $request, $id)
     {
         $request->validated();
 
-        $course = Course::where('id_course', $id_course)
+        $course = Course::where('id', $id)
             ->update([
 
                 'name' => $request->input('name'),
@@ -145,7 +145,7 @@ class CoursesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id_course
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Course $course)

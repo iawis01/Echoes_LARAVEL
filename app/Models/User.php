@@ -43,4 +43,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    //Relacion muchos a muchos
+    public function courses(){
+        return $this->belongsToMany('App\Models\Course');
+    }
+
 }
