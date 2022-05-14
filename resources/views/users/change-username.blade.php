@@ -5,9 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Change Password') }}</div>
+                    <div class="card-header">{{ __('Change Username') }}</div>
 
-                    <form action="{{ route('update-password') }}" method="POST">
+                    <form action="{{ route('update-username') }}" method="POST">
                         @csrf
                         <div class="card-body">
                             @if (session('status'))
@@ -21,27 +21,27 @@
                             @endif
 
                             <div class="mb-3">
-                                <label for="oldPasswordInput" class="form-label">Old Password</label>
-                                <input name="old_password" type="password"
-                                    class="form-control @error('old_password') is-invalid @enderror" id="oldPasswordInput"
-                                    placeholder="Old Password">
-                                @error('old_password')
+                                <label for="oldUsernameInput" class="form-label">Old Username</label>
+                                <input name="old_username" type="text"
+                                    class="form-control @error('old_username') is-invalid @enderror" id="oldUsernameInput"
+                                    placeholder="Old Username">
+                                @error('old_username')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="newPasswordInput" class="form-label">New Password</label>
-                                <input name="new_password" type="password"
-                                    class="form-control @error('new_password') is-invalid @enderror" id="newPasswordInput"
-                                    placeholder="New Password">
-                                @error('new_password')
+                                <label for="newUsernameInput" class="form-label">New Username</label>
+                                <input name="new_username" type="text"
+                                    class="form-control @error('new_username') is-invalid @enderror" id="newUsernameInput"
+                                    placeholder="New Username">
+                                @error('new_username')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="confirmNewPasswordInput" class="form-label">Confirm New Password</label>
-                                <input name="new_password_confirmation" type="password" class="form-control"
-                                    id="confirmNewPasswordInput" placeholder="Confirm New Password">
+                                <label for="confirmNewUsernameInput" class="form-label">Confirm New Username</label>
+                                <input name="new_username_confirmation" type="text" class="form-control"
+                                    id="confirmNewUsernameInput" placeholder="Confirm New Username">
                             </div>
 
                         </div>
@@ -49,6 +49,8 @@
                         <div class="card-footer">
                             <button class="btn btn-success">Submit</button>
                         </div>
+
+
 
                     </form>
                 </div>
@@ -61,7 +63,6 @@
                         </button>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

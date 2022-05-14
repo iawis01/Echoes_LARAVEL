@@ -1,12 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\AdminsController;
-use App\Http\Controllers\UserController;
-
-
+use App\Http\Controllers\CoursesController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +13,7 @@ use App\Http\Controllers\UserController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,3 +37,9 @@ Route::get('/users/index', [App\Http\Controllers\UserController::class, 'index']
 
 Route::get('/users/change-password', [App\Http\Controllers\UserController::class, 'changePassword'])->name('change-password');
 Route::post('users/change-password', [App\Http\Controllers\UserController::class, 'updatePassword'])->name('update-password');
+
+Route::get('/users/change-username', [App\Http\Controllers\UserController::class, 'changeUsername'])->name('change-username');
+Route::post('users/change-username', [App\Http\Controllers\UserController::class, 'updateUsername'])->name('update-username');
+
+Route::get('/users/change-email', [App\Http\Controllers\UserController::class, 'changeEmail'])->name('change-email');
+Route::post('users/change-email', [App\Http\Controllers\UserController::class, 'updateEmail'])->name('update-email');

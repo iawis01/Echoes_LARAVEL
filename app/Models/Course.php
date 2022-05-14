@@ -11,10 +11,10 @@ class Course extends Model
     public $timestamps = false;
 
     /*
-        //Habilitar el created_at y el updated_at y elegir formato
+    //Habilitar el created_at y el updated_at y elegir formato
     protected $timestamps = true;
-    
-    */
+
+     */
 
     //protected $dateFormat = 'h:m:s';
     use HasFactory;
@@ -23,11 +23,10 @@ class Course extends Model
 
     protected $primaryKey = 'id_course';
 
-    protected $fillable =['name', 'description', 'date_start', 'date_end', 'active'];
-
+    protected $fillable = ['name', 'description', 'date_start', 'date_end', 'active'];
 
     /*public function users(){
-        return $this->belongToMany(User::class);
-    }*/
+return $this->belongToMany(User::class);
+}*/
 
 }

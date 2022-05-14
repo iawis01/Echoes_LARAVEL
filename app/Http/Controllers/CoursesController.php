@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Models\Course;
-use App\Rules\Uppercase;
 use App\Http\Requests\CreateValidationRequestCourse;
+use App\Models\Course;
+use Illuminate\Http\Request;
 
 class CoursesController extends Controller
 {
@@ -24,16 +22,14 @@ class CoursesController extends Controller
         /*$courses = Course::where('id_course', '=', '1')
         ->get();*/
 
-       
-
         return view('courses.index', [
-            'courses' => $courses
+            'courses' => $courses,
         ]);
-
 
     }
 
-    public function about(){
+    public function about()
+    {
         return 'About Us Page';
     }
 
@@ -55,13 +51,9 @@ class CoursesController extends Controller
      */
     public function store(CreateValidationRequestCourse $request)
     {
-        
-
 
         //Esta forma de validar es usando la CreateValidationRequest que hemos creado en Requests
         $request->validated();
-
-       
 
         //Otra forma
         $course = Course::create([
@@ -70,11 +62,10 @@ class CoursesController extends Controller
             'description' => $request->input('description'),
             'date_start' => $request->input('date_start'),
             'date_end' => $request->input('date_end'),
-            'active' => $request->input('active')
+            'active' => $request->input('active'),
         ]);
 
         return redirect('/courses');
-
 
         //Una forma de hacerlo
         // $course = new Course;
@@ -85,22 +76,21 @@ class CoursesController extends Controller
         // $course->active = $request->input('active');
         // $course->save();
 
-
-         //Para validar con Request $ request
+        //Para validar con Request $ request
         //validate method sirve para comprobar los datos que vienen del request
         //comprueba. Si es válido continuará con el Course::create
         //si no es valido, lanza una ValidationException
         /*$request->validate([
-                // usamos | para añadir mas de una "regla"
-            'name' => 'required',
-            'description' => 'required',
-            'date_start' => 'required',
-            'date_end' => 'required',
-            'active' =>  'required' 
+    // usamos | para añadir mas de una "regla"
+    'name' => 'required',
+    'description' => 'required',
+    'date_start' => 'required',
+    'date_end' => 'required',
+    'active' =>  'required'
 
-           // 'ejemploInteger' =>  'required|integer|min:0|max:1000' 
-           // 'ejemploReglaPropia' =>  new Uppercase, 
-        ]);*/
+    // 'ejemploInteger' =>  'required|integer|min:0|max:1000'
+    // 'ejemploReglaPropia' =>  new Uppercase,
+    ]);*/
     }
 
     /**
@@ -137,7 +127,6 @@ class CoursesController extends Controller
     public function update(CreateValidationRequestCourse $request, $id_course)
     {
         $request->validated();
- 
 
         $course = Course::where('id_course', $id_course)
             ->update([
@@ -146,8 +135,8 @@ class CoursesController extends Controller
                 'description' => $request->input('description'),
                 'date_start' => $request->input('date_start'),
                 'date_end' => $request->input('date_end'),
-                'active' => $request->input('active')
-        ]);
+                'active' => $request->input('active'),
+            ]);
 
         return redirect('/courses');
 
