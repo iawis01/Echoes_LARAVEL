@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\EnrollmentsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Route::get('/courses', [CoursesController::class, 'index']);
 
 Route::resource('/courses', CoursesController::class);
+
+Route::resource('/enrollments', EnrollmentsController::class);
 
 //Admins endpoint
 Route::resource('/admins', AdminsController::class);

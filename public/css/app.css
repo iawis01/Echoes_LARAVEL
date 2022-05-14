@@ -11687,6 +11687,15 @@ table {
   color: red;
 }
 
+.card-admin {
+  width: 15em;
+  padding: 0.01em 2px;
+  margin: 0.1em;
+  box-sizing: inherit;
+  border: 1px solid rgb(164, 204, 205) !important;
+  border-radius: 5px;
+}
+
 .card {
   width: 40em;
   padding: 0.01em 5px;
