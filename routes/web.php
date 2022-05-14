@@ -33,3 +33,5 @@ Route::resource('/courses', CoursesController::class);
 
 //Admins endpoint
 Route::resource('/admins', AdminsController::class);
+
+Route::get('/admins', [App\Http\Controllers\AdminController::class, 'index'])->name('admins.index');

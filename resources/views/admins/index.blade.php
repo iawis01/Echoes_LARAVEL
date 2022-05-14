@@ -1,6 +1,64 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="container-login">
+    <div class="wrapper-login">
+        <div id="text-center">
+            <h1>
+                Estudiantes
+            </h1>
+        </div>
+
+
+        <div class="container-login">
+            <div class="wrapper-login">
+  
+              <table>
+                  <thead>
+                      <tr>
+                          <th>Id</th>
+                          <th>Name</th>
+                          <th>Email</th>
+
+                      </tr>
+                  </thead>
+  
+                  <tbody>
+                      @foreach ($users as $user)
+                          <tr>
+  
+                              <th>{{ $user->id }}</th>
+  
+                              <td>
+                                  {{ $user->name }}
+                              </td>
+  
+                              <td>
+                                  {{ $user->email }}
+                              </td>
+  
+                              
+                              @endforeach
+                          </tr>
+                  </tbody>
+              </table>
+  
+              <button class='btn'>
+                  <a href="/">Volver</a>
+              </button>
+  
+            </div>
+          </div>
+
+
+
+
+    </div>
+</div>
+
+
+
     <div class="container-login">
         <div class="wrapper-login">
             <div class="box"

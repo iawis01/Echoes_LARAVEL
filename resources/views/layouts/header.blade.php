@@ -18,21 +18,27 @@
 
               <!--@if (isset(Auth::user()->user_type) && Auth::user()->user_type 
                     == "Admin" || "Teacher")-->
+                    <!--@endif-->
+
+               @auth     
               <li>
                   <a href="/admins"
                   class="{{ request()->is('admins/*') ? 'active' : '' }}">Panel Administracion</a>
               </li>
-              <!--@endif-->
+              @endauth
 
-
+              @auth
               <li>
                   <a href="contact"
                   class="{{ request()->is('contact') ? 'active' : '' }}">Expediente</a>
               </li>
+              @endauth
 
+              @auth
               <li>
                 <a href="contact"
                 class="{{ request()->is('contact') ? 'active' : '' }}">Perfil</a>
             </li>
+            @endauth
           </ul>
       </nav>

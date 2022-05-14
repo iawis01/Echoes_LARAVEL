@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use App\Models\Course;
 use App\Rules\Uppercase;
+use App\Models\User;
 
 
 class AdminsController extends Controller
@@ -19,10 +20,17 @@ class AdminsController extends Controller
 
     public function index()
     {
+        $users = DB::table('users')
+            ->where("user_type", "=", "Student")
+            ->get();
+        //$users = User::all()->where('user_type' == 'Student');
+
+
+
         if(Gate::denies('user-only', auth()->user())){
-            return view('admins.index');
+            return view('admins.index', compact('users'));
         }else{
-            return view('welcome');
+            return view('home');
         }
         
 
