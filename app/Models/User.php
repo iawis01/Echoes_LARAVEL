@@ -48,4 +48,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Course');
     }
 
+
+        //Relacion uno a muchos (inversa)
+        public function clase(){
+            return $this->belongsTo('App\Models\Clase');
+        }
+
 }

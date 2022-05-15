@@ -3,6 +3,8 @@
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\EnrollmentsController;
+use App\Http\Controllers\ClaseController;
+use App\Http\Controllers\ScheduleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +32,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('/courses', CoursesController::class);
 
 Route::resource('/enrollments', EnrollmentsController::class);
+
+Route::resource('/classes', ClaseController::class);
+
+Route::resource('/schedules', ScheduleController::class);
 
 //Admins endpoint
 Route::resource('/admins', AdminsController::class);

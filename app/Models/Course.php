@@ -26,11 +26,18 @@ class Course extends Model
     protected $fillable = ['name', 'description', 'date_start', 'date_end', 'active'];
 
     /*public function users(){
-return $this->belongToMany(User::class);
-}*/
+    return $this->belongToMany(User::class);
+    }*/
 
-public function users(){
-    return $this->belongsToMany('App\Models\User');
-}
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
+
+    //Relacion uno a muchos (inversa)
+    public function clase()
+    {
+        return $this->belongsToMany('App\Models\Clase');
+    }
 
 }
