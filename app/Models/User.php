@@ -62,6 +62,15 @@ class User extends Authenticatable
                                 );
     }
 
+    public function clasesExams(){
+        return $this->belongsToMany(Clase::class, 
+                                        'exams',
+                                        'user_id',
+                                        'class_id'
+                                            
+        );                          
+    }
+
     
 
 }

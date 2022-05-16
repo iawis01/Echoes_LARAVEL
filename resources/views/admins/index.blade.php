@@ -149,7 +149,7 @@
                                 <p class="card-text">Gestiona los examenes</p>
         
                                 <button class='btn'>
-                                    <a href="examns">Entrar</a>
+                                    <a href="exams">Entrar</a>
                                 </button>
         
                             </div>

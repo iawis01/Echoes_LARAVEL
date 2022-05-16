@@ -45,7 +45,18 @@ class Clase extends Model
                                         'class_id',
                                         'user_id'
                                             
-                                    );
+        );
     }
+
+    public function alumnosExams(){
+        return $this->belongsToMany(User::class, 
+                                        'exams',
+                                        'class_id',
+                                        'user_id'
+                                            
+        );                          
+    }
+
+
 
 }

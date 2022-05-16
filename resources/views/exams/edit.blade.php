@@ -4,20 +4,20 @@
     <div class="container-login">
         <div class="wrapper-login">
             <h1>
-                FORMULARIO: EDITAR UN TRABAJO
+                FORMULARIO: EDITAR UN EXAMEN
             </h1>
 
-            <form action="/works/{{ $work->id }}" method="POST">
+            <form action="/exams/{{ $exam->id }}" method="POST">
                 @csrf
                 @method('PUT')
 
-                <input type="number" placeholder="Id Clase trabajo " name="class_id" value="{{ $work->class_id }}">
+                <input type="number" placeholder="Id Clase examen " name="class_id" value="{{ $exam->class_id }}">
 
-                <input type="number" placeholder="Id Estudiante trabajo " name="user_id" value="{{ $work->user_id }}">
+                <input type="number" placeholder="Id Estudiante examen " name="user_id" value="{{ $exam->user_id }}">
 
-                <input type="text" placeholder="Nombre del trabajo" name="name" value="{{ $work->name }}">
+                <input type="text" placeholder="Nombre del examen" name="name" value="{{ $exam->name }}">
 
-                <input type="number"  step="0.01" placeholder="Nota del trabajo" name="mark" value="{{ $work->mark }}">
+                <input type="number"  step="0.01" placeholder="Nota del examen" name="mark" value="{{ $exam->mark }}">
                 
 
                 <button class='btn' type="submit">Editar trabajo</button>
@@ -41,7 +41,7 @@
 
             <div>
                 <button class='btn'>
-                    <a href="/works">Volver</a>
+                    <a href="/exams">Volver</a>
                 </button>
             </div>
 
