@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateValidationRequestSchedule extends FormRequest
+class CreateValidationRequestWork extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,10 @@ class CreateValidationRequestSchedule extends FormRequest
     public function rules()
     {
         return [
-            'class_id' => '',
-            'time_start' => 'required',
-            'time_end' => 'required',
-            'day' => 'required',
+            'class_id' => 'required',
+            'class_id' => 'required',
+            'name' => 'required',
+            'mark' => 'required',
         ];
     }
 }

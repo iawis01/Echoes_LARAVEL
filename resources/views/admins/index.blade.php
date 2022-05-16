@@ -78,11 +78,23 @@
 
                 <div class="card-admin">
                     <div class="card-body">
-                        <h5 class="card-title">Profesores</h5>
-                        <p class="card-text">Gestiona los profesores</p>
+                        <h5 class="card-title">Matriculaciones</h5>
+                        <p class="card-text">Gestiona las matriculaciones</p>
 
                         <button class='btn'>
-                            <a href="teachers">Entrar</a>
+                            <a href="enrollments">Entrar</a>
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="card-admin">
+                    <div class="card-body">
+                        <h5 class="card-title">Clases</h5>
+                        <p class="card-text">Gestiona las clases</p>
+
+                        <button class='btn'>
+                            <a href="classes">Entrar</a>
                         </button>
 
                     </div>
@@ -98,48 +110,56 @@
                         </button>
 
                     </div>
+                </div>
 
-                    
+                <div class="card-admin">
+                    <div class="card-body">
+                        <h5 class="card-title">Profesores</h5>
+                        <p class="card-text">Gestiona los profesores</p>
 
+                        <button class='btn'>
+                            <a href="teachers">Entrar</a>
+                        </button>
 
+                    </div>
+                </div>
 
 
             </div>
-            <div class="card-admin">
-                <div class="card-body">
-                    <h5 class="card-title">Clases</h5>
-                    <p class="card-text">Gestiona las clases</p>
 
-                    <button class='btn'>
-                        <a href="classes">Entrar</a>
-                    </button>
+            <div class="container-login">
+                <div class="wrapper-login">
+                    <div class="box"
+                        style="margin: auto; display: grid; grid-template-columns: auto auto auto auto auto auto auto; align-items: start; justify-content: safe center;">
+                        <div class="card-admin">
+                            <div class="card-body">
+                                <h5 class="card-title">Trabajos</h5>
+                                <p class="card-text">Gestiona los trabajos</p>
+        
+                                <button class='btn'>
+                                    <a href="works">Entrar</a>
+                                </button>
+        
+                            </div>
+                        </div>
 
+                        <div class="card-admin">
+                            <div class="card-body">
+                                <h5 class="card-title">Examenes</h5>
+                                <p class="card-text">Gestiona los examenes</p>
+        
+                                <button class='btn'>
+                                    <a href="examns">Entrar</a>
+                                </button>
+        
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-            <div class="card-admin">
-                <div class="card-body">
-                    <h5 class="card-title">Matriculaciones</h5>
-                    <p class="card-text">Gestiona las matriculaciones</p>
-
-                    <button class='btn'>
-                        <a href="enrollments">Entrar</a>
-                    </button>
-
-                </div>
         </div>
-    </div>
 
-    <div class="container-login">
-        <div class="wrapper-login">
-            <div class="box"
-                style="margin: auto; display: grid; grid-template-columns: auto auto auto auto auto auto auto; align-items: start; justify-content: safe center;">
 
-                
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
     </div>
 @endsection

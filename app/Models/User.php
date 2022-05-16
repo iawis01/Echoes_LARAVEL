@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\User;
 
 class User extends Authenticatable
 {
@@ -48,10 +49,19 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Course');
     }
 
-
-        //Relacion uno a muchos (inversa)
-        public function clase(){
-            return $this->belongsTo('App\Models\Clase');
+       
+    public function clasesTeacher(){
+            return $this->hasMany(Clase::class, 'id_class');
         }
+
+    public function clasesWorks(){
+        return $this->belongsToMany(Clase::class, 
+                                        'works',
+                                        'user_id',
+                                        'class_id'
+                                );
+    }
+
+    
 
 }

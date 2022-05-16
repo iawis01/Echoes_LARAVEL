@@ -34,7 +34,7 @@ class Course extends Model
         return $this->belongsToMany('App\Models\User');
     }
 
-    //Relacion uno a muchos (inversa)
+   
     public function clase()
     {
         return $this->belongsToMany('App\Models\Clase');

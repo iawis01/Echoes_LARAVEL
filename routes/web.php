@@ -5,6 +5,7 @@ use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\EnrollmentsController;
 use App\Http\Controllers\ClaseController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\WorkController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,21 +30,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Courses endpoint
 //Route::get('/courses', [CoursesController::class, 'index']);
 
-Route::resource('/courses', CoursesController::class);
-
-Route::resource('/enrollments', EnrollmentsController::class);
-
-Route::resource('/classes', ClaseController::class);
-
-Route::resource('/schedules', ScheduleController::class);
-
-//Admins endpoint
-Route::resource('/admins', AdminsController::class);
-
-Route::get('/admins', [App\Http\Controllers\AdminsController::class, 'index'])->name('admins.index');
-
-Route::get('/users/index', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
-
 Route::get('/users/change-password', [App\Http\Controllers\UserController::class, 'changePassword'])->name('change-password');
 Route::post('users/change-password', [App\Http\Controllers\UserController::class, 'updatePassword'])->name('update-password');
 
@@ -52,3 +38,27 @@ Route::post('users/change-username', [App\Http\Controllers\UserController::class
 
 Route::get('/users/change-email', [App\Http\Controllers\UserController::class, 'changeEmail'])->name('change-email');
 Route::post('users/change-email', [App\Http\Controllers\UserController::class, 'updateEmail'])->name('update-email');
+
+Route::resource('/courses', CoursesController::class);
+
+Route::resource('/enrollments', EnrollmentsController::class);
+
+Route::resource('/classes', ClaseController::class);
+
+Route::resource('/schedules', ScheduleController::class);
+
+Route::resource('/works', WorkController::class);
+
+
+//Admins endpoint
+Route::resource('/admins', AdminsController::class);
+
+Route::get('/admins', [App\Http\Controllers\AdminsController::class, 'index'])->name('admins.index');
+
+Route::get('/users/index', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+
+
+
+
+
+//Route::get('/works', 'App\Http\Controllers\WorkController@index');

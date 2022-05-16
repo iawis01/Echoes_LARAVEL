@@ -28,7 +28,8 @@ class Schedule extends Model
 
 
     //Relacion uno a muchos (inversa)
-    public function clase(){
+    public function clases(){
+      //¿BelongsTo? ¿Solo uno?
       return $this->belongsToMany('App\Models\Clase');
   }
 
