@@ -90,4 +90,25 @@ class UserController extends Controller
         return back()->with("status", "Email changed successfully!");
     }
 
+
+    public function expediente()
+    {
+        $idAlumno =  auth()->user()->id;
+
+        $alumno = User::find($idAlumno); 
+        
+
+        return view('users/expediente', compact('alumno'));
+    }
+
+    public function clasesCursoAlumno(){
+        $idAlumno =  auth()->user()->id;
+
+        $alumno = User::find($idAlumno); 
+        
+        $idCursoClases = $_REQUEST['idCurso'];
+
+        return view('users/expediente', compact('alumno', 'idCursoClases'));
+    }
+
 }

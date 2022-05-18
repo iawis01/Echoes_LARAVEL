@@ -12,10 +12,6 @@
                     <a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
                 </li>
 
-                <!--@if ((isset(Auth::user()->user_type) && Auth::user()->user_type == 'Admin') || 'Teacher')
--->
-                <!--
-@endif-->
 
                 @auth
                     <li>
@@ -25,7 +21,7 @@
 
                 @auth
                     <li>
-                        <a href="contact" class="{{ request()->is('contact') ? 'active' : '' }}">Expediente</a>
+                        <a href="/users/expediente" class="{{ request()->is('contact') ? 'active' : '' }}">Expediente</a>
                     </li>
                 @endauth
 
