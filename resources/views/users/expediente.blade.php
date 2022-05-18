@@ -18,6 +18,7 @@
                         <th>Id Curso</th>
                         <th>Nombre Curso</th>
 
+
                     </tr>
                 </thead>
 
@@ -36,7 +37,7 @@
 
             <div>
               <h3>Introduce el id de tu curso para ver sus clases</h3>
-              <form action="expediente" method="POST">
+              <form action="clasesCurso" method="POST">
                 @csrf
                 <input type="number" placeholder="Id del curso" name="idCurso">
         

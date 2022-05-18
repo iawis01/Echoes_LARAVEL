@@ -35,9 +35,9 @@ class Course extends Model
     }
 
    
-    public function clase()
+    public function clases()
     {
-        return $this->belongsToMany('App\Models\Clase');
+        return $this->hasMany('App\Models\Clase');
     }
 
 }

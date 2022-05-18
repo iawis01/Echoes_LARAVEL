@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -96,9 +100,15 @@ class UserController extends Controller
         $idAlumno =  auth()->user()->id;
 
         $alumno = User::find($idAlumno); 
-        
 
-        return view('users/expediente', compact('alumno'));
+
+        if (Gate::allows('user-only', auth()->user())) {
+            return view('users/expediente', compact('alumno'));
+        } else {
+            return view('welcome');
+        }
+
+       
     }
 
     public function clasesCursoAlumno(){
@@ -106,9 +116,41 @@ class UserController extends Controller
 
         $alumno = User::find($idAlumno); 
         
+        
+
         $idCursoClases = $_REQUEST['idCurso'];
 
-        return view('users/expediente', compact('alumno', 'idCursoClases'));
+        $curso = Course::find($idCursoClases);
+
+        return view('users/clasesCurso', compact('alumno', 'idCursoClases', 'curso'));
+    }
+
+    public function trabajosClase(){
+        $idAlumno =  auth()->user()->id;
+
+        $alumno = User::find($idAlumno); 
+        
+        
+
+        $idCursoClases = $_REQUEST['idCurso'];
+
+        $curso = Course::find($idCursoClases);
+
+        return view('users/clasesCurso', compact('alumno', 'idCursoClases', 'curso'));
+    }
+
+    public function examenesClase(){
+        $idAlumno =  auth()->user()->id;
+
+        $alumno = User::find($idAlumno); 
+        
+        
+
+        $idCursoClases = $_REQUEST['idCurso'];
+
+        $curso = Course::find($idCursoClases);
+
+        return view('users/clasesCurso', compact('alumno', 'idCursoClases', 'curso'));
     }
 
 }
