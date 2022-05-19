@@ -39,21 +39,21 @@
 
             <div>
               <h3>Introduce el id de la clase para ver los trabajos</h3>
-              <form action="examenesClase" method="POST">
+              <form action="trabajosClase" method="POST">
                 @csrf
                 <input type="number" placeholder="Id de la clase" name="idClase">
         
-                <button class='btn' type="submit">Busca trabajos</button>
+                <button class='btn' type="submit">Buscar trabajos</button>
               </form>
             </div>
 
             <div>
                 <h3>Introduce el id de la clase para ver los examenes</h3>
-                <form action="trabajosClase" method="POST">
+                <form action="examenesClase" method="POST">
                   @csrf
-                  <input type="number" placeholder="Id de los examenes" name="idClase">
+                  <input type="number" placeholder="Id de la clase" name="idClase">
           
-                  <button class='btn' type="submit">Busca examenes</button>
+                  <button class='btn' type="submit">Buscar examenes</button>
                 </form>
               </div>
 

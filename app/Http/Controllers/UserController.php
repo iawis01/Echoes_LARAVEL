@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Course;
+use App\Models\Clase;
+use App\Models\Work;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -125,21 +127,26 @@ class UserController extends Controller
         return view('users/clasesCurso', compact('alumno', 'idCursoClases', 'curso'));
     }
 
-    public function trabajosClase(){
+    public function trabajosClaseCurso(){
         $idAlumno =  auth()->user()->id;
 
         $alumno = User::find($idAlumno); 
         
         
 
-        $idCursoClases = $_REQUEST['idCurso'];
 
-        $curso = Course::find($idCursoClases);
+        $idClaseTrabajos = $_REQUEST['idClase'];
 
-        return view('users/clasesCurso', compact('alumno', 'idCursoClases', 'curso'));
+        $clase = Clase::find($idClaseTrabajos);
+
+        $worksEstudiante = Work::where('class_id', '=', $idClaseTrabajos)
+                                ->where('user_id', '=', $idAlumno)->get();
+
+        return view('users/trabajosClase', compact(
+                                        'alumno', 'idClaseTrabajos', 'clase', 'worksEstudiante'));
     }
 
-    public function examenesClase(){
+    public function examenesClaseCurso(){
         $idAlumno =  auth()->user()->id;
 
         $alumno = User::find($idAlumno); 

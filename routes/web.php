@@ -63,8 +63,8 @@ Route::get('/users/index', [App\Http\Controllers\UserController::class, 'index']
 Route::get('/users/expediente', [App\Http\Controllers\UserController::class, 'expediente'])->name('users.expediente');
 Route::post('/users/clasesCurso', [App\Http\Controllers\UserController::class, 'clasesCursoAlumno'])->name('users.clasesCursoAlumno');
 
-Route::post('/users/trabajosClase', [App\Http\Controllers\UserController::class, 'clasesCursoAlumno'])->name('users.clasesCursoAlumno');
-Route::post('/users/examenesClase', [App\Http\Controllers\UserController::class, 'clasesCursoAlumno'])->name('users.clasesCursoAlumno');
+Route::post('/users/trabajosClase', [App\Http\Controllers\UserController::class, 'trabajosClaseCurso'])->name('users.trabajosClaseCurso');
+Route::post('/users/examenesClase', [App\Http\Controllers\UserController::class, 'examenesClaseCurso'])->name('users.examenesClaseCurso');
 
 
 
