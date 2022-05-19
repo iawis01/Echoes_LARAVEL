@@ -11691,6 +11691,7 @@ table {
   width: 15em;
   padding: 0.01em 2px;
   margin: 0.1em;
+  padding-top: 3em;
   box-sizing: inherit;
   border: 1px solid rgb(164, 204, 205) !important;
   border-radius: 5px;

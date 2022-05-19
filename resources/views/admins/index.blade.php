@@ -112,7 +112,7 @@
                     </div>
                 </div>
 
-                <div class="card-admin">
+                <!--<div class="card-admin">
                     <div class="card-body">
                         <h5 class="card-title">Profesores</h5>
                         <p class="card-text">Gestiona los profesores</p>
@@ -122,7 +122,7 @@
                         </button>
 
                     </div>
-                </div>
+                </div>-->
 
 
             </div>

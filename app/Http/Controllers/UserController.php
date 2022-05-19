@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Course;
 use App\Models\Clase;
 use App\Models\Work;
+use App\Models\Exam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -142,8 +143,7 @@ class UserController extends Controller
         $worksEstudiante = Work::where('class_id', '=', $idClaseTrabajos)
                                 ->where('user_id', '=', $idAlumno)->get();
 
-        return view('users/trabajosClase', compact(
-                                        'alumno', 'idClaseTrabajos', 'clase', 'worksEstudiante'));
+        return view('users/trabajosClase', compact('alumno', 'idClaseTrabajos', 'clase', 'worksEstudiante'));
     }
 
     public function examenesClaseCurso(){
@@ -153,11 +153,15 @@ class UserController extends Controller
         
         
 
-        $idCursoClases = $_REQUEST['idCurso'];
+        $idClaseTrabajos = $_REQUEST['idClase'];
 
-        $curso = Course::find($idCursoClases);
+        $clase = Clase::find($idClaseTrabajos);
 
-        return view('users/clasesCurso', compact('alumno', 'idCursoClases', 'curso'));
+        $examsEstudiante = Exam::where('class_id', '=', $idClaseTrabajos)
+                                ->where('user_id', '=', $idAlumno)->get();
+
+
+        return view('users/examenesClase', compact('alumno', 'idClaseTrabajos', 'clase', 'examsEstudiante'));
     }
 
 }

@@ -35,7 +35,7 @@
             </table>
 
             <button class='btn'>
-                <a href="/users/expediente">Volver</a>
+                <a href="/users/expediente">Volver al inicio del expediente</a>
             </button>
 
         
