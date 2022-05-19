@@ -9,15 +9,18 @@
     </div>
 
     <div class="container-profile">
+        <label class="toggle" for="myToggle">
+            <input class="toggle__input" name="" type="checkbox" id="myToggle">
+            <div class="toggle__fill"></div>
+        </label>
 
         <div class="wrapper-profile"
             style="margin: auto; display: grid; grid-template-columns: auto auto auto; align-items: start; justify-content: safe center;">
 
-
             <div class="card" style=" width: 18rem; ">
                 <div class="card-body">
-                    <h4 class="card-title">Username de usuario</h4>
-                    <p class="card-text">Cambia tu username de usuario</p>
+                    <h4 class="card-title">Username</h4>
+                    <p class="card-text">Cambia tu nombre de usuario</p>
                     <button class='btn'>
                         <a href="/users/change-username">Editar</a>
                     </button>
