@@ -40,6 +40,10 @@ Route::post('users/change-username', [App\Http\Controllers\UserController::class
 Route::get('/users/change-email', [App\Http\Controllers\UserController::class, 'changeEmail'])->name('change-email');
 Route::post('users/change-email', [App\Http\Controllers\UserController::class, 'updateEmail'])->name('update-email');
 
+Route::get('/exams/createFinalNote', [App\Http\Controllers\ExamController::class, 'renderFinalNote'])->name('createFinalNote');
+Route::post('/exams/createFinalNote', [App\Http\Controllers\ExamController::class, 'createFinalNote'])->name('createFinalNote');
+
+
 Route::resource('/courses', CoursesController::class);
 
 Route::resource('/enrollments', EnrollmentsController::class);

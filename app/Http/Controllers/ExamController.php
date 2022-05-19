@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateValidationRequestExam;
+use App\Http\Requests\CreateValidationRequestFinalNote;
+use App\Http\Requests\CreateValidationRequestEditFinalNote;
+
 use App\Models\Exam;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ExamController extends Controller
 {
@@ -41,6 +45,16 @@ class ExamController extends Controller
         return view('exams.create');
     }
 
+        /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function renderFinalNote()
+    {
+        return view('exams.createFinalNote');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -55,6 +69,65 @@ class ExamController extends Controller
 
         //Otra forma
         $exam = Exam::create([
+
+            'class_id' => $request->input('class_id'),
+            'user_id' => $request->input('user_id'),
+            'name' => $request->input('name'),
+            'mark' => $request->input('mark'),
+
+        ]);
+
+        return redirect('/exams');
+
+    }
+
+     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function createFinalNote(CreateValidationRequestFinalNote $request)
+    {
+
+        //Esta forma de validar es usando la CreateValidationRequest que hemos creado en Requests
+        $request->validated();
+
+        // Recibir la media aritmetica de todos los trabajos
+        $average = DB::table('exams')
+            ->where('class_id', '=', $request->input('class_id'))
+            ->where('user_id', '=', $request->input('user_id'))
+            ->avg('mark');
+
+        // Crear la nota final
+        $exam = Exam::create([
+
+            'class_id' => $request->input('class_id'),
+            'user_id' => $request->input('user_id'),
+            'name' => 'final_note',
+            'mark' => $average,
+
+        ]);
+
+        return redirect('/exams');
+
+    }
+
+     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function editFinalNote(CreateValidationRequestEditFinalNote $request, $id)
+    {
+
+        //Esta forma de validar es usando la CreateValidationRequest que hemos creado en Requests
+        $request->validated();
+        
+        // Crear la nota final
+        $exam = Exam::where('id', $id)
+        ->update([
 
             'class_id' => $request->input('class_id'),
             'user_id' => $request->input('user_id'),
