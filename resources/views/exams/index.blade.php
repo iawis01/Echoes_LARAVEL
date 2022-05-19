@@ -17,6 +17,16 @@
                         Añade un examen
                     </a>
                 </button>
+                <button class='btn'>
+                    <a href="exams/createFinalNote">
+                        Agrega la nota final
+                    </a>
+                </button>
+                <button class='btn'>
+                    <a href="exams/editFinalNote">
+                        edita una nota final
+                    </a>
+                </button>
             </div>
 
             <div class="container-login">
