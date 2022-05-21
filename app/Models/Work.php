@@ -10,7 +10,7 @@ class Work extends Model
     use HasFactory;
 
         //Deshabilitar el created_at y el updated_at
-        public $timestamps = false;
+        public $timestamps = true;
 
         /*
         //Habilitar el created_at y el updated_at y elegir formato

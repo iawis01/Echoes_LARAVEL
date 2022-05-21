@@ -30,6 +30,8 @@
                                 <th>Id Estudiante</th>
                                 <th>Nombre</th>
                                 <th>Nota</th>
+                                <th>Día y hora de creacion</th>
+                                <th>Día y hora de actualización</th>
                                 <th>Editar</th>
                                 <th>Eliminar</th>
 
@@ -56,6 +58,14 @@
 
                                     <td>
                                         {{ $work->mark }}
+                                    </td>
+
+                                    <td>
+                                        {{ $work->created_at }}
+                                    </td>
+
+                                    <td>
+                                        {{ $work->updated_at }}
                                     </td>
 
                                     <td>

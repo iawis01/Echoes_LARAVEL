@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('name');
             $table->float('mark');
 
+            $table->timestamps();
+
 
 
             //Si la clave primaria de todas las claves hasta ahora

@@ -40,6 +40,8 @@
                                 <th>Id Estudiante</th>
                                 <th>Nombre</th>
                                 <th>Nota</th>
+                                <th>Día y hora de creacion</th>
+                                <th>Día y hora de actualización</th>
                                 <th>Editar</th>
                                 <th>Eliminar</th>
 
@@ -66,6 +68,14 @@
 
                                     <td>
                                         {{ $exam->mark }}
+                                    </td>
+
+                                    <td>
+                                        {{ $exam->created_at }}
+                                    </td>
+
+                                    <td>
+                                        {{ $exam->updated_at }}
                                     </td>
 
                                     <td>
