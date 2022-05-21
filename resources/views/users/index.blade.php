@@ -9,10 +9,16 @@
     </div>
 
     <div class="container-profile">
-        <label class="toggle" for="myToggle">
-            <input class="toggle__input" name="" type="checkbox" id="myToggle">
-            <div class="toggle__fill"></div>
-        </label>
+        <div class="card" style=" width: 18rem; ">
+            <div class="card-body">
+                <p class="card-text">Notificarme de cambios en mis notas</p>
+
+                <label class="toggle" for="myToggle">
+                    <input class="toggle__input" name="" type="checkbox" id="myToggle">
+                    <div class="toggle__fill"></div>
+                </label>
+            </div>
+        </div>
 
         <div class="wrapper-profile"
             style="margin: auto; display: grid; grid-template-columns: auto auto auto; align-items: start; justify-content: safe center;">

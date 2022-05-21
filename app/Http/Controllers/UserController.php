@@ -6,11 +6,15 @@ use App\Models\User;
 use App\Models\Course;
 use App\Models\Clase;
 use App\Models\Work;
+use App\Models\Notifications;
+use App\Mail\NotificationMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -158,6 +162,11 @@ class UserController extends Controller
         $curso = Course::find($idCursoClases);
 
         return view('users/clasesCurso', compact('alumno', 'idCursoClases', 'curso'));
+    }
+
+    public function sendNotification(){
+        Mail::to(Auth::user()->email)->send(new NotificationMail());
+        return new NotificationMail();
     }
 
 }
