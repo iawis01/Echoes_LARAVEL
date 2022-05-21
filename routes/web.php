@@ -7,6 +7,7 @@ use App\Http\Controllers\ClaseController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\ExamController;
+use App\Http\Controllers\PercentageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,6 +56,8 @@ Route::resource('/schedules', ScheduleController::class);
 Route::resource('/works', WorkController::class);
 
 Route::resource('/exams', ExamController::class);
+
+Route::resource('/percentages', PercentageController::class);
 
 
 //Admins endpoint

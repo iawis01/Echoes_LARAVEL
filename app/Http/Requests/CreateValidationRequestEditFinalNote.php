@@ -25,7 +25,7 @@ class CreateValidationRequestEditFinalNote extends FormRequest
     {
         return [
             'class_id' => 'required',
-            'class_id' => 'required',
+            'user_id' => 'required',
             'mark' => 'required',
         ];
     }

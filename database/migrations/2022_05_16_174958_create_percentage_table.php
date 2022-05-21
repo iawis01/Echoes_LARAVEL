@@ -13,21 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('percentage', function (Blueprint $table) {
+        Schema::create('percentages', function (Blueprint $table) {
             $table->increments('id');
             
             $table->unsignedInteger('course_id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('class_id');
 
             $table->foreign('course_id')
                 ->references('id')->on('courses')->onDelete('cascade');
 
-            $table->foreign('user_id')
-                ->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('class_id')
+                ->references('id_class')->on('classes')->onDelete('cascade');
             
                 //Pasar dos columnas en un array
                 //Si no le pasa el array interpreta el segundo parametro como el nombre del index unico
-            $table->unique(array('course_id','user_id'));
+            $table->unique(array('course_id','class_id'));
 
             $table->float('continuous_assessment');
             $table->float('exams');
