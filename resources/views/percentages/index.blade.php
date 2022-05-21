@@ -6,25 +6,15 @@
 
             <div id="text-center">
                 <h1>
-                    Examenes
+                    Porcentajes
                 </h1>
             </div>
 
 
             <div id="text-center">
                 <button class='btn'>
-                    <a href="exams/create">
-                        Añade un examen
-                    </a>
-                </button>
-                <button class='btn'>
-                    <a href="exams/createFinalNote">
-                        Agrega la nota final
-                    </a>
-                </button>
-                <button class='btn'>
-                    <a href="exams/editFinalNote">
-                        edita una nota final
+                    <a href="percentages/create">
+                        Añade un porcentaje
                     </a>
                 </button>
             </div>
@@ -35,13 +25,12 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Id Examen</th>
+                                <th>Id Porcentaje</th>
+                                <th>Id Curso</th>
                                 <th>Id Clase</th>
-                                <th>Id Estudiante</th>
-                                <th>Nombre</th>
-                                <th>Nota</th>
-                                <th>Día y hora de creacion</th>
-                                <th>Día y hora de actualización</th>
+                                <th>Porcentaje evaluación continua</th>
+                                <th>Porcentaje examenes</th>
+                                
                                 <th>Editar</th>
                                 <th>Eliminar</th>
 
@@ -49,45 +38,37 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($exams as $exam)
+                            @foreach ($percentages as $percentage)
                                 <tr>
 
-                                    <th>{{ $exam->id }}</th>
+                                    <th>{{ $percentage->id }}</th>
 
                                     <td>
-                                        {{ $exam->class_id }}
+                                        {{ $percentage->course_id }}
                                     </td>
 
                                     <td>
-                                        {{ $exam->user_id }}
+                                        {{ $percentage->class_id }}
                                     </td>
 
                                     <td>
-                                        {{ $exam->name }}
+                                        {{ $percentage->continuous_assessment }}
                                     </td>
 
                                     <td>
-                                        {{ $exam->mark }}
-                                    </td>
-
-                                    <td>
-                                        {{ $exam->created_at }}
-                                    </td>
-
-                                    <td>
-                                        {{ $exam->updated_at }}
+                                        {{ $percentage->exams }}
                                     </td>
 
                                     <td>
                                         <button class='btn'>
-                                            <a href="exams/{{ $exam->id }}/edit">
+                                            <a href="percentages/{{ $percentage->id }}/edit">
                                                 Edit
                                         </button>
                                     </td>
 
 
                                     <td>
-                                        <form action="/exams/{{ $exam->id }}" method="POST">
+                                        <form action="/percentages/{{ $percentage->id }}" method="POST">
                                             @csrf
                                             @method('delete')
 

@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Work extends Model
+class Percentage extends Model
 {
     use HasFactory;
 
         //Deshabilitar el created_at y el updated_at
-        public $timestamps = true;
+        public $timestamps = false;
 
         /*
         //Habilitar el created_at y el updated_at y elegir formato
@@ -19,9 +19,9 @@ class Work extends Model
          */
     
     
-        protected $table = 'works';
+        protected $table = 'percentages';
     
         protected $primaryKey = 'id';
     
-        protected $fillable = ['class_id', 'user_id', 'name', 'mark'];
+        protected $fillable = ['course_id', 'class_id', 'continuous_assessment', 'exams'];
 }

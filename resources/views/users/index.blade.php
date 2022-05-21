@@ -13,8 +13,24 @@
             <div class="card-body">
                 <p class="card-text">Notificarme de cambios en mis notas</p>
 
-                <label class="toggle" for="myToggle">
-                    <input class="toggle__input" name="" type="checkbox" id="myToggle">
+                <label class="toggle" for="workToggle">
+                    <input class="toggle__input" name="" type="checkbox" id="workToggle" {{ $notifications->work == 1 ? "checked" : ""}}>
+                    <p>Trabajo</p>
+                    <div class="toggle__fill"></div>
+                </label>
+                <label class="toggle" for="examToggle">
+                    <input class="toggle__input" name="" type="checkbox" id="examToggle" {{ $notifications->exam == 1 ? "checked" : ""}}>
+                    <p>Examen</p>
+                    <div class="toggle__fill"></div>
+                </label>
+                <label class="toggle" for="continuosAssesmentToggle">
+                    <input class="toggle__input" name="" type="checkbox" id="continuosAssesmentToggle" {{ $notifications->continuos_assesment == 1 ? "checked" : ""}}>
+                    <p>Evaluacion Continua</p>
+                    <div class="toggle__fill"></div>
+                </label>
+                <label class="toggle" for="finalNoteToggle">
+                    <input class="toggle__input" name="" type="checkbox" id="finalNoteToggle" {{ $notifications->final_note == 1 ? "checked" : ""}}>
+                    <p>Nota final</p>
                     <div class="toggle__fill"></div>
                 </label>
             </div>

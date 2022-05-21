@@ -25,7 +25,7 @@ class CreateValidationRequestWork extends FormRequest
     {
         return [
             'class_id' => 'required',
-            'class_id' => 'required',
+            'user_id' => 'required',
             'name' => 'required',
             'mark' => 'required',
         ];

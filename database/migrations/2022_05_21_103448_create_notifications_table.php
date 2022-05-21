@@ -22,7 +22,7 @@ return new class extends Migration
 
             $table->boolean('work');
             $table->boolean('exam');
-            $table->boolean('continuos_assesment');
+            $table->boolean('continuos_assessment');
             $table->boolean('final_note');
         });
     }

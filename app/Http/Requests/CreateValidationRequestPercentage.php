@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateValidationRequestExam extends FormRequest
+class CreateValidationRequestPercentage extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,10 @@ class CreateValidationRequestExam extends FormRequest
     public function rules()
     {
         return [
+            'course_id' => 'required',
             'class_id' => 'required',
-            'user_id' => 'required',
-            'name' => 'required',
-            'mark' => 'required',
+            'continuous_assessment' => 'required',
+            'exams' => 'required',
         ];
     }
 }

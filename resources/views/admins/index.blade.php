@@ -19,6 +19,7 @@
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                 
 
                             </tr>
                         </thead>
@@ -36,6 +37,8 @@
                                     <td>
                                         {{ $user->email }}
                                     </td>
+
+            
                             @endforeach
                             </tr>
                         </tbody>
@@ -112,7 +115,7 @@
                     </div>
                 </div>
 
-                <div class="card-admin">
+                <!--<div class="card-admin">
                     <div class="card-body">
                         <h5 class="card-title">Profesores</h5>
                         <p class="card-text">Gestiona los profesores</p>
@@ -122,7 +125,7 @@
                         </button>
 
                     </div>
-                </div>
+                </div>-->
 
 
             </div>
@@ -150,6 +153,18 @@
         
                                 <button class='btn'>
                                     <a href="exams">Entrar</a>
+                                </button>
+        
+                            </div>
+                        </div>
+
+                        <div class="card-admin">
+                            <div class="card-body">
+                                <h5 class="card-title">Porcentajes</h5>
+                                <p class="card-text">Gestiona los porcentajes</p>
+        
+                                <button class='btn'>
+                                    <a href="percentages">Entrar</a>
                                 </button>
         
                             </div>
