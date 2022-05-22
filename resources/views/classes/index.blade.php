@@ -41,7 +41,7 @@
                             @foreach ($clases as $clase)
                                 <tr>
 
-                                    <th>{{ $clase->id_class }}</th>
+                                    <th>{{ $clase->id }}</th>
 
                                     <td>
                                         {{ $clase->user_id }}
@@ -62,14 +62,14 @@
 
                                     <td>
                                         <button class='btn'>
-                                            <a href="classes/{{ $clase->id_class }}/edit">
+                                            <a href="classes/{{ $clase->id }}/edit">
                                                 Edit
                                         </button>
                                     </td>
 
 
                                     <td>
-                                        <form action="/classes/{{ $clase->id_class }}" method="POST">
+                                        <form action="/classes/{{ $clase->id }}" method="POST">
                                             @csrf
                                             @method('delete')
 

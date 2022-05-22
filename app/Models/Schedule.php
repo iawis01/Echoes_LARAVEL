@@ -23,13 +23,13 @@ class Schedule extends Model
 
     protected $primaryKey = 'id_schedule';
 
-    protected $fillable = ['class_id', 'time_start', 'time_end', 'day'];
+    protected $fillable = ['class_id_schedule', 'time_start', 'time_end', 'day'];
 
 
 
-    //Relacion uno a muchos (inversa)
+    
     public function clases(){
-      //¿BelongsTo? ¿Solo uno?
+     
       return $this->belongsToMany('App\Models\Clase');
   }
 

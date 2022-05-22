@@ -19,6 +19,8 @@
                         <th>Id Schedule</th>
                         <th>Id Nombre</th>
                         <th>Id Color</th>
+                        <th>Porcentaje nota evaluación continua</th>
+                        <th>Porcentaje nota examenes</th>
                     </tr>
                 </thead>
 
@@ -26,11 +28,13 @@
                 <tbody>
                     @foreach ($curso->clases as $registro)
                         <tr>
-                            <th>{{ $registro->id_class }}</th>
+                            <th>{{ $registro->id }}</th>
 
                             <td>{{ $registro->schedule_id }}</td>
                             <td>{{ $registro->name }}</td>
                             <td>{{ $registro->color }}</td>
+                            <td>{{ $registro->percentage->continuous_assessment }}</td>
+                            <td>{{ $registro->percentage->exams }}</td>
                     @endforeach
                     </tr>
                 </tbody>

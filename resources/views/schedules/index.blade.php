@@ -43,7 +43,7 @@
                                     <th>{{ $schedule->id_schedule }}</th>
 
                                     <td>
-                                        {{ $schedule->class_id }}
+                                        {{ $schedule->class_id_schedule }}
                                     </td>
 
                                     <td>

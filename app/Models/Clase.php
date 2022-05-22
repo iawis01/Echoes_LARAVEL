@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\Course;
+use App\Models\Percentage;
 
 class Clase extends Model
 {
@@ -22,7 +24,7 @@ class Clase extends Model
 
     protected $table = 'classes';
 
-    protected $primaryKey = 'id_class';
+    protected $primaryKey = 'id';
 
     protected $fillable = ['user_id', 'course_id', 'schedule_id', 'name', 'color'];
 
@@ -55,6 +57,10 @@ class Clase extends Model
                                         'user_id'
                                             
         );                          
+    }
+
+    public function percentage(){
+        return $this->hasOne(Percentage::class, 'class_id');                          
     }
 
 

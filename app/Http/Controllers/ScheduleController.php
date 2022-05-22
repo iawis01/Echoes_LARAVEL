@@ -54,7 +54,7 @@ class ScheduleController extends Controller
         //Otra forma
         $schedule = Schedule::create([
 
-            'class_id' => $request->input('class_id'),
+            'class_id_schedule' => $request->input('class_id_schedule'),
             'time_start' => $request->input('time_start'),
             'time_end' => $request->input('time_end'),
             'day' => $request->input('day'),
@@ -102,7 +102,7 @@ class ScheduleController extends Controller
         $schedule = Schedule::where('id_schedule', $id_schedule)
             ->update([
 
-              'class_id' => $request->input('class_id'),
+              'class_id_schedule' => $request->input('class_id_schedule'),
               'time_start' => $request->input('time_start'),
               'time_end' => $request->input('time_end'),
               'day' => $request->input('day'),

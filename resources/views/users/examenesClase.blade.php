@@ -17,6 +17,7 @@
                     <tr>
      			        <th>Nombre examen</th>
                         <th>Calificacion examen</th>
+                      
                     </tr>
                 </thead>
 
@@ -27,6 +28,8 @@
                             <th>{{ $registro->name }}</th>
 
                             <td>{{ $registro->mark }}</td>
+
+                        
 
                     @endforeach
                     </tr>

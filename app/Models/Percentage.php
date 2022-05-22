@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Clase;
+use App\Models\Course;
 
 class Percentage extends Model
 {
@@ -24,4 +26,15 @@ class Percentage extends Model
         protected $primaryKey = 'id';
     
         protected $fillable = ['course_id', 'class_id', 'continuous_assessment', 'exams'];
+
+
+        public function clase()
+     {
+        return $this->belongsTo(Clase::class, 'id');
+     }
+
+     public function curso()
+     {
+        return $this->belongsTo(Course::class, 'id');
+     }
 }
