@@ -84,6 +84,7 @@ Route::post('/users/trabajosClase', [App\Http\Controllers\UserController::class,
 
 Route::post('/users/examenesClase', [App\Http\Controllers\UserController::class, 'examenesClaseCurso'])->name('users.examenesClaseCurso');
 
+Route::post('/users/notaFinal', [App\Http\Controllers\UserController::class, 'notaFinalClaseCurso'])->name('users.notaFinalClaseCurso');
 
 
 

@@ -132,6 +132,8 @@ class UserController extends Controller
 
         $curso = Course::find($idCursoClases);
 
+ 
+
         return view('users/clasesCurso', compact('alumno', 'idCursoClases', 'curso'));
     }
 
@@ -169,6 +171,49 @@ class UserController extends Controller
 
 
         return view('users/examenesClase', compact('alumno', 'idClaseTrabajos', 'clase', 'examsEstudiante'));
+    }
+
+    public function notaFinalClaseCurso(){
+        $idAlumno =  auth()->user()->id;
+
+        $alumno = User::find($idAlumno); 
+        
+
+        $idClaseTrabajos = $_REQUEST['idClase'];
+
+        $clase = Clase::find($idClaseTrabajos);
+
+        $idCurso = $clase->course_id;
+
+        $curso = Course::find($idCurso);
+
+        $averageExams = DB::table('exams')
+            ->where('class_id', '=', $idClaseTrabajos)
+            ->where('user_id', '=', $idAlumno)
+            ->avg('mark');
+
+        $averageWorks = DB::table('works')
+            ->where('class_id', '=', $idClaseTrabajos)
+            ->where('user_id', '=', $idAlumno)
+            ->avg('mark');    
+
+        $porcentajeExams = DB::table('percentages')
+            ->where('course_id', '=', $idCurso)
+            ->where('class_id', '=', $idClaseTrabajos)
+            ->value('exams');
+        
+        $porcentajeWorks = DB::table('percentages')
+            ->where('course_id', '=', $idCurso)
+            ->where('class_id', '=', $idClaseTrabajos)
+            ->value('continuous_assessment');;
+
+        $notaExams = $averageExams * $porcentajeExams;
+        
+        $notaWorks = $averageWorks * $porcentajeWorks;
+
+        $notaFinal = $notaExams + $notaWorks;
+
+        return view('users/notaFinal', compact('alumno', 'clase', 'curso',  'notaFinal'));
     }
 
     public function sendNotification(){

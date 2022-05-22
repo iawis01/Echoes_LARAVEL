@@ -21,6 +21,7 @@
                         <th>Id Color</th>
                         <th>Porcentaje nota evaluación continua</th>
                         <th>Porcentaje nota examenes</th>
+                        <th>Nota final</th>
                     </tr>
                 </thead>
 
@@ -35,6 +36,7 @@
                             <td>{{ $registro->color }}</td>
                             <td>{{ $registro->percentage->continuous_assessment }}</td>
                             <td>{{ $registro->percentage->exams }}</td>
+                            <td>    </td>
                     @endforeach
                     </tr>
                 </tbody>
@@ -58,6 +60,16 @@
                   <input type="number" placeholder="Id de la clase" name="idClase">
           
                   <button class='btn' type="submit">Buscar examenes</button>
+                </form>
+              </div>
+
+              <div>
+                <h3>Introduce el id de la clase para ver su nota final</h3>
+                <form action="notaFinal" method="POST">
+                  @csrf
+                  <input type="number" placeholder="Id de la clase" name="idClase">
+          
+                  <button class='btn' type="submit">Ver nota final</button>
                 </form>
               </div>
 
