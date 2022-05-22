@@ -152,15 +152,17 @@ class UserController extends Controller
         $worksEstudiante = Work::where('class_id', '=', $idClaseTrabajos)
                                 ->where('user_id', '=', $idAlumno)->get();
 
-        return view('users/trabajosClase', compact('alumno', 'idClaseTrabajos', 'clase', 'worksEstudiante'));
+        $examsEstudiante = Exam::where('class_id', '=', $idClaseTrabajos)
+                                ->where('user_id', '=', $idAlumno)->get();
+
+        return view('users/trabajosClase', compact('alumno', 'idClaseTrabajos', 'clase', 'worksEstudiante', 'examsEstudiante'));
     }
 
-    public function examenesClaseCurso(){
+    //Ya cumplimos las dos funcionalidades en la función anterior
+    /*public function examenesClaseCurso(){
         $idAlumno =  auth()->user()->id;
 
         $alumno = User::find($idAlumno); 
-        
-        
 
         $idClaseTrabajos = $_REQUEST['idClase'];
 
@@ -168,10 +170,8 @@ class UserController extends Controller
 
         $examsEstudiante = Exam::where('class_id', '=', $idClaseTrabajos)
                                 ->where('user_id', '=', $idAlumno)->get();
-
-
         return view('users/examenesClase', compact('alumno', 'idClaseTrabajos', 'clase', 'examsEstudiante'));
-    }
+    }*/
 
     public function notaFinalClaseCurso(){
         $idAlumno =  auth()->user()->id;

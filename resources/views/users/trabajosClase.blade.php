@@ -32,6 +32,35 @@
                     </tr>
                 </tbody>
 
+        
+
+            </table>
+
+            <h3>Los examenes del alumno {{ $alumno->name }} en la clase {{ $clase->name }} son:</h3>
+
+            <table>
+                <thead>
+                    <tr>
+     			        <th>Nombre examen</th>
+                        <th>Calificacion examen</th>
+                      
+                    </tr>
+                </thead>
+
+
+                <tbody>
+                    @foreach ($examsEstudiante as $registro)
+                        <tr>
+                            <th>{{ $registro->name }}</th>
+
+                            <td>{{ $registro->mark }}</td>
+
+                        
+
+                    @endforeach
+                    </tr>
+                </tbody>
+
             </table>
 
             <button class='btn'>
