@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateValidationRequestWork;
 use App\Models\Work;
+use App\Http\Controllers\UserController;
+use App\Mail\NotificationMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class WorkController extends Controller
 {
@@ -63,6 +67,7 @@ class WorkController extends Controller
 
         ]);
 
+        Mail::to(Auth::user()->email)->send(new NotificationMail());
         return redirect('/works');
 
     }

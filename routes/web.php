@@ -7,6 +7,9 @@ use App\Http\Controllers\ClaseController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\ExamController;
+use App\Mail\NotificationMail;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\PercentageController;
 use Illuminate\Support\Facades\Route;
 
@@ -57,6 +60,11 @@ Route::resource('/works', WorkController::class);
 
 Route::resource('/exams', ExamController::class);
 
+// Ruta para los emails
+Route::get('/email', function() {
+    Mail::to(Auth::user()->email)->send(new NotificationMail());
+    return new NotificationMail();
+});
 Route::resource('/percentages', PercentageController::class);
 
 
