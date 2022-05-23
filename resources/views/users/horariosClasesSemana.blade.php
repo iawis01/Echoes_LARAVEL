@@ -10,7 +10,7 @@
     <div class="container-login">
         <div class="wrapper-login">
 
-            <h3>Horarios del {{ $alumno->name }} en todas las clases de todos sus cursos</h3>
+            <h3>Horarios de clases de {{ $alumno->name }} esta semana</h3>
 
             <table>
               <thead>
