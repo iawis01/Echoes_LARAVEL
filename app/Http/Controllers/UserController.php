@@ -9,6 +9,7 @@ use App\Models\Work;
 use App\Models\Notifications;
 use App\Mail\NotificationMail;
 use App\Models\Exam;
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -174,6 +175,31 @@ class UserController extends Controller
     public function sendNotification(){
         Mail::to(Auth::user()->email)->send(new NotificationMail());
         return new NotificationMail();
+    }
+
+    public function loadNotifications() {
+        $idAlumno =  auth()->user()->id;
+
+        $notifications = Notifications::where('student_id', $idAlumno)->first();
+        return view('users/change-notifications', compact('notifications'));
+    }
+
+    public function updateNotifications(Request $request){
+        $idAlumno =  auth()->user()->id;
+        error_log($request);
+        $inputValue = $request->all();
+
+        $notifications = Notifications::where('student_id', $idAlumno)
+            ->update([
+                'work' => $request->work,
+                'exam' => $request->exam,
+                'continuos_assessment' => $request->continuos_assessment,
+                'final_note' => $request->final_note
+            ]);
+
+            return response()->json(['success'=>'Data is successfully added']);
+
+    
     }
 
 }

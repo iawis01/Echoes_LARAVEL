@@ -18,6 +18,6 @@ class Notifications extends Model
 
     protected $primaryKey = 'id_notification';
 
-    protected $fillable = ['student_id', 'work', 'exam', 'continuos_assesment', 'final_note'];
+    protected $fillable = ['student_id', 'work', 'exam', 'continuos_assessment', 'final_note'];
 }
 
