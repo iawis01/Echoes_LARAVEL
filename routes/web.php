@@ -87,6 +87,7 @@ Route::post('/users/trabajosClase', [App\Http\Controllers\UserController::class,
 
 Route::post('/users/notaFinal', [App\Http\Controllers\UserController::class, 'notaFinalClaseCurso'])->name('users.notaFinalClaseCurso');
 
+Route::get('/users/horariosClases', [App\Http\Controllers\UserController::class, 'horariosClases'])->name('users.horariosClases');
 
 
 //Route::get('/works', 'App\Http\Controllers\WorkController@index');

@@ -214,4 +214,17 @@ class UserController extends Controller
         return new NotificationMail();
     }
 
+
+
+
+    public function horariosClases(){
+        $idAlumno =  auth()->user()->id;
+
+        $alumno = User::find($idAlumno); 
+
+        $cursosEstudiante = $alumno->courses;
+
+        return view('users/horariosClases', compact('alumno', 'idAlumno', 'cursosEstudiante'));
+    }
+
 }
