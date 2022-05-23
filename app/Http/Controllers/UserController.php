@@ -224,7 +224,51 @@ class UserController extends Controller
 
         $cursosEstudiante = $alumno->courses;
 
+    
         return view('users/horariosClases', compact('alumno', 'idAlumno', 'cursosEstudiante'));
     }
+
+    public function horariosClasesHoy(){
+        $idAlumno =  auth()->user()->id;
+
+        $alumno = User::find($idAlumno); 
+
+        $cursosEstudiante = $alumno->courses;
+
+        $hoy = date('Y-m-d');
+    
+        return view('users/horariosClasesHoy', compact('alumno', 'idAlumno', 'cursosEstudiante', 'hoy'));
+    }
+
+    public function horariosClasesSemana(){
+        $idAlumno =  auth()->user()->id;
+
+        $alumno = User::find($idAlumno); 
+
+        $cursosEstudiante = $alumno->courses;
+
+        $hoy = date('Y-m-d');
+
+        $semana = date("Y-m-d", strtotime("+7 days"));
+    
+        return view('users/horariosClasesSemana', compact('alumno', 'idAlumno', 'cursosEstudiante', 'hoy', 'semana'));
+    }
+
+    public function horariosClasesMes(){
+        $idAlumno =  auth()->user()->id;
+
+        $alumno = User::find($idAlumno); 
+
+        $cursosEstudiante = $alumno->courses;
+
+        $hoy = date('Y-m-d');
+
+        $mes = date("Y-m-d", strtotime("+30 days"));
+    
+        return view('users/horariosClasesMes', compact('alumno', 'idAlumno', 'cursosEstudiante', 'hoy', 'mes'));
+    }
+
+
+   
 
 }

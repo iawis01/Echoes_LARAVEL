@@ -89,5 +89,10 @@ Route::post('/users/notaFinal', [App\Http\Controllers\UserController::class, 'no
 
 Route::get('/users/horariosClases', [App\Http\Controllers\UserController::class, 'horariosClases'])->name('users.horariosClases');
 
+Route::get('/users/horariosClasesHoy', [App\Http\Controllers\UserController::class, 'horariosClasesHoy'])->name('users.horariosClasesHoy');
+
+Route::get('/users/horariosClasesSemana', [App\Http\Controllers\UserController::class, 'horariosClasesSemana'])->name('users.horariosClasesSemana');
+
+Route::get('/users/horariosClasesMes', [App\Http\Controllers\UserController::class, 'horariosClasesMes'])->name('users.horariosClasesMes');
 
 //Route::get('/works', 'App\Http\Controllers\WorkController@index');

@@ -31,7 +31,8 @@
 
                       @foreach($cursoEstudiante->clases as $claseEstudiante)
 
-                        
+                         @if ($claseEstudiante->schedule->day >= $hoy)
+                          @if($claseEstudiante->schedule->day <= $mes)
 
                       <tr>
                           <th>{{ $claseEstudiante->course_id }}</th>
@@ -42,6 +43,8 @@
                           <td>{{ $claseEstudiante->schedule->time_start}}</td>
                           <td>{{ $claseEstudiante->schedule->time_end}}</td>
                           
+                            @endif
+                          @endif
                             
                           @endforeach
                       
@@ -62,7 +65,7 @@
           </form>
 
             <button class='btn'>
-                <a href="/users/expediente">Volver</a>
+                <a href="/users/horariosClases">Volver</a>
             </button>
 
                 
