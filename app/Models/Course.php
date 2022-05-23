@@ -40,4 +40,9 @@ class Course extends Model
         return $this->hasMany('App\Models\Clase');
     }
 
+    public function percentage()
+     {
+         return $this->hasMany('App\Models\Percentage');
+     }
+
 }

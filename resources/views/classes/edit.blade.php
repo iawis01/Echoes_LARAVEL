@@ -7,7 +7,7 @@
                 FORMULARIO: EDITAR UNA CLASE
             </h1>
 
-            <form action="/classes/{{ $clase->id_class }}" method="POST">
+            <form action="/classes/{{ $clase->id }}" method="POST">
                 @csrf
                 @method('PUT')
 

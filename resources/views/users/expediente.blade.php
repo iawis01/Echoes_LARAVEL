@@ -18,7 +18,6 @@
                         <th>Id Curso</th>
                         <th>Nombre Curso</th>
 
-
                     </tr>
                 </thead>
 
@@ -34,6 +33,12 @@
                 </tbody>
 
             </table>
+
+            <div>
+            <button class='btn'>
+                <a href="/users/horariosClases">Ver los horarios de las clases</a>
+            </button>
+        </div>
 
             <div>
               <h3>Introduce el id de tu curso para ver sus clases</h3>

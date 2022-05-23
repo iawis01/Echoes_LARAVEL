@@ -86,8 +86,17 @@ Route::post('/users/clasesCurso', [App\Http\Controllers\UserController::class, '
 
 Route::post('/users/trabajosClase', [App\Http\Controllers\UserController::class, 'trabajosClaseCurso'])->name('users.trabajosClaseCurso');
 
-Route::post('/users/examenesClase', [App\Http\Controllers\UserController::class, 'examenesClaseCurso'])->name('users.examenesClaseCurso');
+//Ya cumplimos esta funcionalidad junto a la anterior en la misma ruta/función del controlador/vista
+//Route::post('/users/examenesClase', [App\Http\Controllers\UserController::class, 'examenesClaseCurso'])->name('users.examenesClaseCurso');
 
+Route::post('/users/notaFinal', [App\Http\Controllers\UserController::class, 'notaFinalClaseCurso'])->name('users.notaFinalClaseCurso');
 
+Route::get('/users/horariosClases', [App\Http\Controllers\UserController::class, 'horariosClases'])->name('users.horariosClases');
+
+Route::get('/users/horariosClasesHoy', [App\Http\Controllers\UserController::class, 'horariosClasesHoy'])->name('users.horariosClasesHoy');
+
+Route::get('/users/horariosClasesSemana', [App\Http\Controllers\UserController::class, 'horariosClasesSemana'])->name('users.horariosClasesSemana');
+
+Route::get('/users/horariosClasesMes', [App\Http\Controllers\UserController::class, 'horariosClasesMes'])->name('users.horariosClasesMes');
 
 //Route::get('/works', 'App\Http\Controllers\WorkController@index');

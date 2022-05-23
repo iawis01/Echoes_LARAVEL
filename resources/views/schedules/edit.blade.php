@@ -7,7 +7,7 @@
                 FORMULARIO: EDITAR UN HORARIO
             </h1>
 
-            <form action="/schedules/{{ $schedule->id_schedule }}" method="POST">
+            <form action="/schedules/{{ $schedule->id }}" method="POST">
                 @csrf
                 @method('PUT')
 

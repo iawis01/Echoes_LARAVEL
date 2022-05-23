@@ -126,8 +126,6 @@ class UserController extends Controller
         $idAlumno =  auth()->user()->id;
 
         $alumno = User::find($idAlumno); 
-        
-        
 
         $idCursoClases = $_REQUEST['idCurso'];
 
@@ -140,9 +138,6 @@ class UserController extends Controller
         $idAlumno =  auth()->user()->id;
 
         $alumno = User::find($idAlumno); 
-        
-        
-
 
         $idClaseTrabajos = $_REQUEST['idClase'];
 
@@ -151,15 +146,17 @@ class UserController extends Controller
         $worksEstudiante = Work::where('class_id', '=', $idClaseTrabajos)
                                 ->where('user_id', '=', $idAlumno)->get();
 
-        return view('users/trabajosClase', compact('alumno', 'idClaseTrabajos', 'clase', 'worksEstudiante'));
+        $examsEstudiante = Exam::where('class_id', '=', $idClaseTrabajos)
+                                ->where('user_id', '=', $idAlumno)->get();
+
+        return view('users/trabajosClase', compact('alumno', 'idClaseTrabajos', 'clase', 'worksEstudiante', 'examsEstudiante'));
     }
 
-    public function examenesClaseCurso(){
+    //Ya cumplimos las dos funcionalidades en la función anterior
+    /*public function examenesClaseCurso(){
         $idAlumno =  auth()->user()->id;
 
         $alumno = User::find($idAlumno); 
-        
-        
 
         $idClaseTrabajos = $_REQUEST['idClase'];
 
@@ -167,9 +164,50 @@ class UserController extends Controller
 
         $examsEstudiante = Exam::where('class_id', '=', $idClaseTrabajos)
                                 ->where('user_id', '=', $idAlumno)->get();
-
-
         return view('users/examenesClase', compact('alumno', 'idClaseTrabajos', 'clase', 'examsEstudiante'));
+    }*/
+
+    public function notaFinalClaseCurso(){
+        $idAlumno =  auth()->user()->id;
+
+        $alumno = User::find($idAlumno); 
+        
+
+        $idClaseTrabajos = $_REQUEST['idClase'];
+
+        $clase = Clase::find($idClaseTrabajos);
+
+        $idCurso = $clase->course_id;
+
+        $curso = Course::find($idCurso);
+
+        $averageExams = DB::table('exams')
+            ->where('class_id', '=', $idClaseTrabajos)
+            ->where('user_id', '=', $idAlumno)
+            ->avg('mark');
+
+        $averageWorks = DB::table('works')
+            ->where('class_id', '=', $idClaseTrabajos)
+            ->where('user_id', '=', $idAlumno)
+            ->avg('mark');    
+
+        $porcentajeExams = DB::table('percentages')
+            ->where('course_id', '=', $idCurso)
+            ->where('class_id', '=', $idClaseTrabajos)
+            ->value('exams');
+        
+        $porcentajeWorks = DB::table('percentages')
+            ->where('course_id', '=', $idCurso)
+            ->where('class_id', '=', $idClaseTrabajos)
+            ->value('continuous_assessment');;
+
+        $notaExams = $averageExams * $porcentajeExams;
+        
+        $notaWorks = $averageWorks * $porcentajeWorks;
+
+        $notaFinal = $notaExams + $notaWorks;
+
+        return view('users/notaFinal', compact('alumno', 'clase', 'curso',  'notaFinal'));
     }
 
     public function sendNotification(){
@@ -201,5 +239,62 @@ class UserController extends Controller
 
     
     }
+
+
+
+
+    public function horariosClases(){
+        $idAlumno =  auth()->user()->id;
+
+        $alumno = User::find($idAlumno); 
+
+        $cursosEstudiante = $alumno->courses;
+
+    
+        return view('users/horariosClases', compact('alumno', 'idAlumno', 'cursosEstudiante'));
+    }
+
+    public function horariosClasesHoy(){
+        $idAlumno =  auth()->user()->id;
+
+        $alumno = User::find($idAlumno); 
+
+        $cursosEstudiante = $alumno->courses;
+
+        $hoy = date('Y-m-d');
+    
+        return view('users/horariosClasesHoy', compact('alumno', 'idAlumno', 'cursosEstudiante', 'hoy'));
+    }
+
+    public function horariosClasesSemana(){
+        $idAlumno =  auth()->user()->id;
+
+        $alumno = User::find($idAlumno); 
+
+        $cursosEstudiante = $alumno->courses;
+
+        $hoy = date('Y-m-d');
+
+        $semana = date("Y-m-d", strtotime("+7 days"));
+    
+        return view('users/horariosClasesSemana', compact('alumno', 'idAlumno', 'cursosEstudiante', 'hoy', 'semana'));
+    }
+
+    public function horariosClasesMes(){
+        $idAlumno =  auth()->user()->id;
+
+        $alumno = User::find($idAlumno); 
+
+        $cursosEstudiante = $alumno->courses;
+
+        $hoy = date('Y-m-d');
+
+        $mes = date("Y-m-d", strtotime("+30 days"));
+    
+        return view('users/horariosClasesMes', compact('alumno', 'idAlumno', 'cursosEstudiante', 'hoy', 'mes'));
+    }
+
+
+   
 
 }

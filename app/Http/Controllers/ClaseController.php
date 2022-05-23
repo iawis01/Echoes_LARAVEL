@@ -73,9 +73,9 @@ class ClaseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_class)
+    public function show($id)
     {
-        return $id_class;
+        return $id;
     }
 
     /**
@@ -84,9 +84,9 @@ class ClaseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_class)
+    public function edit($id)
     {
-        $clase = Clase::find($id_class);
+        $clase = Clase::find($id);
 
         return view('classes.edit')->with('clase', $clase);
     }
@@ -98,11 +98,11 @@ class ClaseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CreateValidationRequestClase $request, $id_class)
+    public function update(CreateValidationRequestClase $request, $id)
     {
         $request->validated();
 
-        $clase = Clase::where('id_class', $id_class)
+        $clase = Clase::where('id', $id)
             ->update([
 
                 'user_id' => $request->input('user_id'),
