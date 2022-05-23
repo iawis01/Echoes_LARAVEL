@@ -40,10 +40,10 @@
                             @foreach ($schedules as $schedule)
                                 <tr>
 
-                                    <th>{{ $schedule->id_schedule }}</th>
+                                    <th>{{ $schedule->id }}</th>
 
                                     <td>
-                                        {{ $schedule->class_id_schedule }}
+                                        {{ $schedule->class_id }}
                                     </td>
 
                                     <td>
@@ -58,14 +58,14 @@
 
                                     <td>
                                         <button class='btn'>
-                                            <a href="schedules/{{ $schedule->id_schedule }}/edit">
+                                            <a href="schedules/{{ $schedule->id }}/edit">
                                                 Edit
                                         </button>
                                     </td>
 
 
                                     <td>
-                                        <form action="/schedules/{{ $schedule->id_schedule }}" method="POST">
+                                        <form action="/schedules/{{ $schedule->id }}" method="POST">
                                             @csrf
                                             @method('delete')
 

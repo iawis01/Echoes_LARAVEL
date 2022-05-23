@@ -21,9 +21,9 @@ class Schedule extends Model
 
     protected $table = 'schedules';
 
-    protected $primaryKey = 'id_schedule';
+    protected $primaryKey = 'id';
 
-    protected $fillable = ['class_id_schedule', 'time_start', 'time_end', 'day'];
+    protected $fillable = ['class_id', 'time_start', 'time_end', 'day'];
 
 
 

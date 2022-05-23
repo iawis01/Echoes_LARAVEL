@@ -7,11 +7,11 @@
                 FORMULARIO: EDITAR UN HORARIO
             </h1>
 
-            <form action="/schedules/{{ $schedule->id_schedule }}" method="POST">
+            <form action="/schedules/{{ $schedule->id }}" method="POST">
                 @csrf
                 @method('PUT')
 
-                <input type="number" placeholder="Id Clase" name="class_id_schedule" value="{{ $schedule->class_id_schedule }}">
+                <input type="number" placeholder="Id Clase" name="class_id" value="{{ $schedule->class_id }}">
 
 
                 <input type="time" placeholder="Hora de inicio" name="time_start" value="{{ $schedule->time_start }}">

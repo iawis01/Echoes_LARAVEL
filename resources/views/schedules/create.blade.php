@@ -10,7 +10,7 @@
             <form action="/schedules" method="POST">
                 @csrf
 
-                <input type="number" placeholder="Id Clase" name="class_id_schedule">
+                <input type="number" placeholder="Id Clase" name="class_id">
 
 
                 <input type="time" placeholder="Hora inicio" name="time_start">

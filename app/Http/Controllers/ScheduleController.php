@@ -54,7 +54,7 @@ class ScheduleController extends Controller
         //Otra forma
         $schedule = Schedule::create([
 
-            'class_id_schedule' => $request->input('class_id_schedule'),
+            'class_id' => $request->input('class_id'),
             'time_start' => $request->input('time_start'),
             'time_end' => $request->input('time_end'),
             'day' => $request->input('day'),
@@ -70,9 +70,9 @@ class ScheduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_schedule)
+    public function show($id)
     {
-        return $id_schedule;
+        return $id;
     }
 
     /**
@@ -81,9 +81,9 @@ class ScheduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_schedule)
+    public function edit($id)
     {
-        $schedule = Schedule::find($id_schedule);
+        $schedule = Schedule::find($id);
 
         return view('schedules.edit')->with('schedule', $schedule);
     }
@@ -95,14 +95,14 @@ class ScheduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CreateValidationRequestSchedule $request, $id_schedule)
+    public function update(CreateValidationRequestSchedule $request, $id)
     {
         $request->validated();
 
-        $schedule = Schedule::where('id_schedule', $id_schedule)
+        $schedule = Schedule::where('id', $id)
             ->update([
 
-              'class_id_schedule' => $request->input('class_id_schedule'),
+              'class_id' => $request->input('class_id'),
               'time_start' => $request->input('time_start'),
               'time_end' => $request->input('time_end'),
               'day' => $request->input('day'),
