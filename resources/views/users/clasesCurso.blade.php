@@ -21,7 +21,9 @@
                         <th>Id Color</th>
                         <th>Porcentaje nota evaluación continua</th>
                         <th>Porcentaje nota examenes</th>
-                        <th>Nota final</th>
+                        <th>Día de la clase</th>
+                        <th>Hora de inicio de la clase</th>
+                        <th>Hora de fin de la clase</th>
                     </tr>
                 </thead>
 
@@ -36,7 +38,9 @@
                             <td>{{ $registro->color }}</td>
                             <td>{{ $registro->percentage->continuous_assessment }}</td>
                             <td>{{ $registro->percentage->exams }}</td>
-                            <td>    </td>
+                            <td>{{ $registro->schedule->day }}</td>
+                            <td>{{ $registro->schedule->time_start}}</td>
+                            <td>{{ $registro->schedule->time_end}}</td>
                     @endforeach
                     </tr>
                 </tbody>

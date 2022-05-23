@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Course;
 use App\Models\Percentage;
+use App\Models\Schedule;
 
 class Clase extends Model
 {
@@ -30,7 +31,7 @@ class Clase extends Model
 
     //¿hasOne?
     public function schedule(){
-        return $this->hasMany('App\Models\Schedule');
+        return $this->hasOne(Schedule::class, 'class_id');
     }
 
     public function profesor(){

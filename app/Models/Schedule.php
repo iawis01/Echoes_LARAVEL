@@ -30,7 +30,7 @@ class Schedule extends Model
     
     public function clases(){
      
-      return $this->belongsToMany('App\Models\Clase');
+      return $this->belongsTo('App\Models\Clase');
   }
 
 }

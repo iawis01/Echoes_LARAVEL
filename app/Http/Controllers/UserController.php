@@ -125,14 +125,10 @@ class UserController extends Controller
         $idAlumno =  auth()->user()->id;
 
         $alumno = User::find($idAlumno); 
-        
-        
 
         $idCursoClases = $_REQUEST['idCurso'];
 
         $curso = Course::find($idCursoClases);
-
- 
 
         return view('users/clasesCurso', compact('alumno', 'idCursoClases', 'curso'));
     }
@@ -141,9 +137,6 @@ class UserController extends Controller
         $idAlumno =  auth()->user()->id;
 
         $alumno = User::find($idAlumno); 
-        
-        
-
 
         $idClaseTrabajos = $_REQUEST['idClase'];
 
