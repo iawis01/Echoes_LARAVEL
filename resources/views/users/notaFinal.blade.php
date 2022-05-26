@@ -15,7 +15,7 @@
             <table>
                 <thead>
                     <tr>
-                      <th>Id Curso</th>
+                        <th>Id Curso</th>
                         <th>Nombre Curso</th>
                         <th>Id Clase</th>
                         <th>Nombre Clase</th>
@@ -25,13 +25,13 @@
 
 
                 <tbody>
-                    
-                        <tr>
-                            <td>{{ $curso->id }}</td>
-                            <td>{{ $curso->name }}</td>
-                            <td>{{ $clase->id }}</td>
-                            <td>{{ $clase->name }}</td>
-                            <td>{{ $notaFinal }}</td>
+
+                    <tr>
+                        <td>{{ $curso->id }}</td>
+                        <td>{{ $curso->name }}</td>
+                        <td>{{ $clase->id }}</td>
+                        <td>{{ $clase->name }}</td>
+                        <td>{{ $notaFinal }}</td>
 
                     </tr>
                 </tbody>
@@ -43,7 +43,7 @@
                 <a href="/users/expediente">Volver</a>
             </button>
 
-                
+
 
         </div>
     </div>

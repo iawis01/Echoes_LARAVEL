@@ -35,23 +35,23 @@
             </table>
 
             <div>
-            <button class='btn'>
-                <a href="/users/horariosClases">Ver los horarios de las clases</a>
-            </button>
-        </div>
+                <button class='btn'>
+                    <a href="/users/horariosClases">Ver los horarios de las clases</a>
+                </button>
+            </div>
 
             <div>
-              <h3>Introduce el id de tu curso para ver sus clases</h3>
-              <form action="clasesCurso" method="POST">
-                @csrf
-                <input type="number" placeholder="Id del curso" name="idCurso">
-        
-                <button class='btn' type="submit">Busca clases</button>
-              </form>
+                <h3>Introduce el id de tu curso para ver sus clases</h3>
+                <form action="clasesCurso" method="POST">
+                    @csrf
+                    <input type="number" placeholder="Id del curso" name="idCurso">
+
+                    <button class='btn' type="submit">Busca clases</button>
+                </form>
             </div>
 
 
-                
+
 
         </div>
     </div>

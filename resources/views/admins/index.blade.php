@@ -19,7 +19,7 @@
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                 
+
 
                             </tr>
                         </thead>
@@ -37,8 +37,6 @@
                                     <td>
                                         {{ $user->email }}
                                     </td>
-
-            
                             @endforeach
                             </tr>
                         </tbody>
@@ -79,17 +77,30 @@
                     </div>
                 </div>
 
+
+
+
                 <div class="card-admin">
                     <div class="card-body">
                         <h5 class="card-title">Matriculaciones</h5>
                         <p class="card-text">Gestiona las matriculaciones</p>
 
-                        <button class='btn'>
-                            <a href="enrollments">Entrar</a>
-                        </button>
+                        @if (Gate::denies('teacher-only', auth()->user()))
+                            
+                            <button class='btn'>
+                                <a href="enrollments">Entrar</a>
+                            </button>
+                            
+                        @else
+                            <button class='btn'>
+                                <p>Sin acceso</p>
+                            </button>
+                        @endif
 
                     </div>
                 </div>
+
+
 
                 <div class="card-admin">
                     <div class="card-body">
@@ -116,16 +127,16 @@
                 </div>
 
                 <!--<div class="card-admin">
-                    <div class="card-body">
-                        <h5 class="card-title">Profesores</h5>
-                        <p class="card-text">Gestiona los profesores</p>
+                        <div class="card-body">
+                            <h5 class="card-title">Profesores</h5>
+                            <p class="card-text">Gestiona los profesores</p>
 
-                        <button class='btn'>
-                            <a href="teachers">Entrar</a>
-                        </button>
+                            <button class='btn'>
+                                <a href="teachers">Entrar</a>
+                            </button>
 
-                    </div>
-                </div>-->
+                        </div>
+                    </div>-->
 
 
             </div>
@@ -138,11 +149,11 @@
                             <div class="card-body">
                                 <h5 class="card-title">Trabajos</h5>
                                 <p class="card-text">Gestiona los trabajos</p>
-        
+
                                 <button class='btn'>
                                     <a href="works">Entrar</a>
                                 </button>
-        
+
                             </div>
                         </div>
 
@@ -150,11 +161,11 @@
                             <div class="card-body">
                                 <h5 class="card-title">Examenes</h5>
                                 <p class="card-text">Gestiona los examenes</p>
-        
+
                                 <button class='btn'>
                                     <a href="exams">Entrar</a>
                                 </button>
-        
+
                             </div>
                         </div>
 
@@ -162,11 +173,11 @@
                             <div class="card-body">
                                 <h5 class="card-title">Porcentajes</h5>
                                 <p class="card-text">Gestiona los porcentajes</p>
-        
+
                                 <button class='btn'>
                                     <a href="percentages">Entrar</a>
                                 </button>
-        
+
                             </div>
                         </div>
 

@@ -39,8 +39,8 @@
                             <td>{{ $registro->percentage->continuous_assessment }}</td>
                             <td>{{ $registro->percentage->exams }}</td>
                             <td>{{ $registro->schedule->day }}</td>
-                            <td>{{ $registro->schedule->time_start}}</td>
-                            <td>{{ $registro->schedule->time_end}}</td>
+                            <td>{{ $registro->schedule->time_start }}</td>
+                            <td>{{ $registro->schedule->time_end }}</td>
                     @endforeach
                     </tr>
                 </tbody>
@@ -48,30 +48,30 @@
             </table>
 
             <div>
-              <h3>Introduce el id de la clase para ver los trabajos y examenes</h3>
-              <form action="trabajosClase" method="POST">
-                @csrf
-                <input type="number" placeholder="Id de la clase" name="idClase">
-        
-                <button class='btn' type="submit">Buscar trabajos</button>
-              </form>
+                <h3>Introduce el id de la clase para ver los trabajos y examenes</h3>
+                <form action="trabajosClase" method="POST">
+                    @csrf
+                    <input type="number" placeholder="Id de la clase" name="idClase">
+
+                    <button class='btn' type="submit">Buscar trabajos</button>
+                </form>
             </div>
 
-              <div>
+            <div>
                 <h3>Introduce el id de la clase para ver su nota final</h3>
                 <form action="notaFinal" method="POST">
-                  @csrf
-                  <input type="number" placeholder="Id de la clase" name="idClase">
-          
-                  <button class='btn' type="submit">Ver nota final</button>
+                    @csrf
+                    <input type="number" placeholder="Id de la clase" name="idClase">
+
+                    <button class='btn' type="submit">Ver nota final</button>
                 </form>
-              </div>
+            </div>
 
             <button class='btn'>
                 <a href="/users/expediente">Volver</a>
             </button>
 
-                
+
 
         </div>
     </div>

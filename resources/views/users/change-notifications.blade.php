@@ -117,7 +117,7 @@ crossorigin="anonymous">
          jQuery.ajax({
             type: 'POST',
             dataType: 'json',
-            url: "{{ route('notifications') }}",
+            url: "{{ route('update-notifications') }}",
             data: {
                work: work,
                exam: exam,

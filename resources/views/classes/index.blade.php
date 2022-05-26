@@ -61,10 +61,12 @@
                               </td>
 
                                     <td>
+                                            
                                         <button class='btn'>
                                             <a href="classes/{{ $clase->id }}/edit">
                                                 Edit
                                         </button>
+
                                     </td>
 
 

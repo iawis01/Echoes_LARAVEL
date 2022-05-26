@@ -15,7 +15,7 @@
             <table>
                 <thead>
                     <tr>
-     			<th>Nombre trabajo</th>
+                        <th>Nombre trabajo</th>
                         <th>Calificacion trabajo</th>
                     </tr>
                 </thead>
@@ -27,12 +27,11 @@
                             <th>{{ $registro->name }}</th>
 
                             <td>{{ $registro->mark }}</td>
-
                     @endforeach
                     </tr>
                 </tbody>
 
-        
+
 
             </table>
 
@@ -41,9 +40,9 @@
             <table>
                 <thead>
                     <tr>
-     			        <th>Nombre examen</th>
+                        <th>Nombre examen</th>
                         <th>Calificacion examen</th>
-                      
+
                     </tr>
                 </thead>
 
@@ -54,9 +53,6 @@
                             <th>{{ $registro->name }}</th>
 
                             <td>{{ $registro->mark }}</td>
-
-                        
-
                     @endforeach
                     </tr>
                 </tbody>
@@ -67,9 +63,8 @@
                 <a href="/users/expediente">Volver al inicio del expediente</a>
             </button>
 
-        
+
 
 
         </div>
-
-@endsection
+    @endsection
